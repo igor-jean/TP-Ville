@@ -37,23 +37,23 @@ foreach ($articles as $infos) {
 <nav>
     <ul class="pagination">
         <?php if ($pageActuelle > 1): ?>
-            <li class="page-item">
-                <a href="./?page=<?= $pageActuelle - 1 ?>" class="page-link">Précédente</a>
+            <li>
+                <a href="./?page=<?= $pageActuelle - 1; echo "&nbl=$parPage";?>" >Précédente</a>
             </li>
         <?php endif; ?>
         <?php if ($pageActuelle < $pages): ?>
-            <li class="page-item">
-                <a href="./?page=<?= $pageActuelle + 1 ?>" class="page-link">Suivante</a>
+            <li>
+                <a href="./?page=<?= $pageActuelle + 1; echo "&nbl=$parPage"; ?>" >Suivante</a>
             </li>
         <?php endif; ?>
     </ul>
 </nav>
 <form action="index.php" method="get">
     <select name="nbl" id="nbl">
-        <option value="10" <?= ($parPage == 10) ?> 'selected' >10</option>
-        <option value="25" <?= ($parPage == 25) ?> 'selected'>25</option>
-        <option value="50" <?= ($parPage == 50) ?> 'selected'>50</option>
-        <option value="100"<?= ($parPage == 100) ?> 'selected'>100</option>
+        <option value="10" <?= ($parPage == 10);if($parPage==10){echo "'selected'";} ?> >10</option>
+        <option value="25" <?= ($parPage == 25);if($parPage==25){echo "'selected'";} ?>>25</option>
+        <option value="50" <?= ($parPage == 50);if($parPage==50){echo "'selected'";} ?>>50</option>
+        <option value="100"<?= ($parPage == 100);if($parPage==100){echo "'selected'";} ?>>100</option>
     </select>
     <input type="submit" value="Rafraichir la page">
 </form>
